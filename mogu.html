@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>精品小姐姐视频</title> 
+  <style>
+*{
+    margin:0px; 
+    padding:0px;
+    touch-action: pan-y;
+    text-align: center;
+}
+.app{
+    width: 100%; 
+    height:100%; 
+    position: absolute; 
+    top:0px; 
+    right:0px; 
+    bottom: 0px; 
+    left:0px; 
+    overflow: hidden;
+    background-color: #ffffff;
+}       
+#myVideo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center center;
+    z-index: 10;
+}
+.play-icon{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover; 
+    background-position:50% 50% ;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: url("https://s1.aigei.com/prevfiles/4add5a9f04634a38a2ad6072edb1de85.png?e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:mJ_sxWLE_6ZSGJhgarM6iMR1lwk="); 
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 200px 200px            
+}
+        video:not([controls]) {
+            outline: none;
+        }    video:not([controls]):enabled:not([paused]) ~ .play-icon,
+        video:not([controls]):disabled:not(:paused) ~ .play-icon {
+            opacity: 0;
+        }
+        video:not([controls]):disabled:paused ~ .play-icon {
+            opacity: 1;
+        }  
+        
+.progress {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 110;
+        }
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            z-index: 120;
+        }
+        .progress-time {
+            position: absolute;
+            right: 20px;
+            bottom: 0px;
+            z-index: 130;
+            font-size: 12px;
+            color: #333;
+         }                              
+    </style> 
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+ </head> 
+ <body> 
+  <div class="app"> 
+   <video id="myVideo" preload="auto" autoplay="“autoplay”" poster="https://hikerfans.com/weisyr/img/Loading1.gif" src=""> 
+   </video>   
+   <div class="play-icon" onclick="toggleVideo()"> 
+   </div> 
+   </div>	
+   <div class="progress"> 
+    <div id="progress-bar" class="progress-bar"></div> 
+    <div class="progress-time" id="time-div">
+      0:00 
+    </div> 
+   </div> 
+  <div id="buttons" style="position:absolute;bottom:150px;right:10px;">
+			<button id="bth" style="border-radius:20px;width:40px;height:32px;opacity:0.4;">连 播</button>
+			<br />
+			<br />
+			<br />
+			<button id="ping" style="border-radius:20px;width:40px;height:32px;opacity:0.4;">满 屏</button>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+ 
+  <script> 
+        const player = document.getElementById("myVideo");
+        const progressBar = document.getElementById('progress-bar');
+        const timeDiv = document.getElementById('time-div');
+ function bo() {    
+    function getJSON(url) {
+        fetch(url)
+ .then(res =>{
+  return res.json();
+  })
+ .then(data=>{
+   i = Math.floor(Math.random() * data.data.list.length);  
+  player.src = data.data.list[i].play_url;
+  })
+  .catch(function(error) {
+        console.log(error)
+  });
+  }
+var y = Math.floor(Math.random() * 530) + 1 
+var url = 'https://api.koudailc.net/api/vlog/list?page='+y+'&limit=20'
+getJSON(url);    
+ }
+        bo(); 
+        auto = true;
+$("#bth").on("click", function() {
+		        auto = !auto;
+		        this.innerText = (auto ? '连 播' : '循 环');		        
+		    });
+		
+
+		    $("#ping").on("click", function() {
+		        this.innerText = (this.innerText == '满 屏' ? '原 始' : '满 屏');
+		        if (this.innerText == '满 屏') {
+		            player.style.objectFit = "cover";
+		            player.play()
+		        } else {
+		            player.style.objectFit = "contain";
+		            player.play()
+		        }        
+		    }) 
+    player.addEventListener('ended', function() {
+		        console.log("播放结束");
+		        if (auto == false) {
+		            player.play();
+		        } else {
+ bo();
+		        }
+		    }, false);          
+                           $(".play-icon").on("dblclick", function(){
+    console.log("dblclick");
+    FullScreen();
+    player.style.objectFit = "contain";
+    document.querySelector(".play-icon").style.opacity = 0; 
+    
+  });
+function FullScreen() {
+	 if (player.requestFullscreen) {
+		   player.requestFullscreen();
+		        player.play();
+		    } else 
+     if (player.mozRequestFullScreen) {
+		        player.mozRequestFullScreen();
+		        player.play();
+		    } else 
+     if (player.webkitRequestFullScreen) {
+		        player.webkitRequestFullScreen();
+		        player.play();
+		    }
+		}	        
+               
+        const intervalId = setInterval(() => {
+            if (player.ended) {
+                clearInterval(intervalId);
+            } else {
+                const currentTime = player.currentTime;
+                const duration = player.duration;
+                const progressWidth = (currentTime / duration) * 100;
+                progressBar.style.width = `${progressWidth}%`;
+                timeDiv.textContent = formatTime(currentTime);
+                player.ontimeupdate = () => {
+                    progressBar.style.width = `${(player.currentTime / player.duration) * 100}%`;
+                    timeDiv.textContent = formatTime(player.currentTime);
+                };
+            }
+        }, 100);
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }        
+        function toggleVideo() {       
+        if (player.paused || player.ended) {
+            player.play();
+            document.querySelector(".play-icon").style.opacity = 0;           
+        } else {
+            player.pause();
+            document.querySelector(".play-icon").style.opacity = 1;          
+        }
+    }        
+    </script> 
+  <script>
+    var startx, starty;
+//获得角度
+function getAngle(angx, angy) {
+    return Math.atan2(angy, angx) * 180 / Math.PI;
+};
+
+//根据起点终点返回方向 1向上 2向下 3向左 4向右 0未滑动
+function getDirection(startx, starty, endx, endy) {
+    var angx = endx - startx;
+    var angy = endy - starty;
+    var result = 0;
+
+    //如果滑动距离太短
+    if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+        return result;
+    }
+
+    var angle = getAngle(angx, angy);
+    if (angle >= -135 && angle <= -45) {
+        result = 1;
+    } else if (angle > 45 && angle < 135) {
+        result = 2;
+    } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+        result = 3;
+    } else if (angle >= -45 && angle <= 45) {
+        result = 4;
+    }
+    return result;
+}
+//手指接触屏幕
+document.addEventListener("touchstart", function(e){
+    startx = e.touches[0].pageX;
+    starty = e.touches[0].pageY;
+}, false);
+//手指离开屏幕
+document.addEventListener("touchend", function(e) {
+    var endx, endy;
+    endx = e.changedTouches[0].pageX;
+    endy = e.changedTouches[0].pageY;
+    var direction = getDirection(startx, starty, endx, endy);
+    switch (direction) {
+        case 1:
+            console.log("向上！");
+            bo()
+            break;
+        case 3:
+            console.log("向左！");
+            bo()
+            break;
+        case 4:            
+            console.log(startx);
+            player.currentTime += Math.abs(startx - endx)/100;
+            break;    
+    }
+}, false);     
+       eval(fy_bridge_app.getInternalJs());
+window.request = window.request00 || window.request;                 
+   let time = new Date().getDate().toString();
+//log(time)
+fba.log(localStorage.getItem('time', ''))
+if (localStorage.getItem('time', '') != time) { 
+    localStorage.setItem('time', time);
+    var 本地 = 'hiker://files/yuan/xjj1.html';
+    var 远程 = 'https://gitcode.net/liuzaoyue/hai/-/raw/master/xjj1.html';  
+    if (request(远程) != request(本地)) {
+      fba.writeFile(本地, request(远程));    
+      $$$().x5LazyRule(() => {
+		confirm({
+		 title: '更新完成',
+	     content: '欢迎使用',
+		})
+	  })   
+    }   
+  }    
+      </script>  
+ </body>
+</html>
