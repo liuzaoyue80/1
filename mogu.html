@@ -25,7 +25,7 @@
 #myVideo{
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center center;
     z-index: 10;
 }
@@ -102,7 +102,7 @@
 			<br />
 			<br />
 			<br />
-			<button id="ping" style="border-radius:20px;width:40px;height:32px;opacity:0.4;">满 屏</button>
+			<button id="ping" style="border-radius:20px;width:40px;height:32px;opacity:0.4;">原 始</button>
 			<br />
 			<br />
 			<br />
@@ -144,12 +144,12 @@ $("#bth").on("click", function() {
 		
 
 		    $("#ping").on("click", function() {
-		        this.innerText = (this.innerText == '满 屏' ? '原 始' : '满 屏');
-		        if (this.innerText == '满 屏') {
-		            player.style.objectFit = "cover";
+		        this.innerText = (this.innerText == '原 始' ? '满 屏' : '原 始');
+		        if (this.innerText == '原 始') {
+		            player.style.objectFit = "contain";
 		            player.play()
 		        } else {
-		            player.style.objectFit = "contain";
+		            player.style.objectFit = "cover";
 		            player.play()
 		        }        
 		    }) 
