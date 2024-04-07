@@ -269,25 +269,6 @@ document.addEventListener("touchend", function(e) {
             break;    
     }
 }, false);     
-       eval(fy_bridge_app.getInternalJs());
-window.request = window.request00 || window.request;                 
-   let time = new Date().getDate().toString();
-//log(time)
-fba.log(localStorage.getItem('time', ''))
-if (localStorage.getItem('time', '') != time) { 
-    localStorage.setItem('time', time);
-    var 本地 = 'hiker://files/yuan/xjj1.html';
-    var 远程 = 'https://gitcode.net/liuzaoyue/hai/-/raw/master/xjj1.html';  
-    if (request(远程) != request(本地)) {
-      fba.writeFile(本地, request(远程));    
-      $$$().x5LazyRule(() => {
-		confirm({
-		 title: '更新完成',
-	     content: '欢迎使用',
-		})
-	  })   
-    }   
-  }    
       </script>  
  </body>
 </html>
