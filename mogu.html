@@ -268,7 +268,27 @@ document.addEventListener("touchend", function(e) {
             player.currentTime += Math.abs(startx - endx)/100;
             break;    
     }
-}, false);     
+}, false); 
+eval(fy_bridge_app.getInternalJs());
+		    window.request = window.request00 || window.request;
+		    let time = new Date().getDate().toString();
+		    //log(time)
+		    
+		    let xjjtime = localStorage.getItem('xjjtime');
+		    if (xjjtime !== time || null === xjjtime) {
+		        localStorage.setItem('xjjtime', time);
+		        var 本地 = 'hiker://files/yuan/mogu.html';
+		        var 远程 = 'https://github.moeyy.xyz/https://raw.githubusercontent.com/liuzaoyue80/1/master/mogu.html';
+		        if (request(远程) != request(本地)) {
+		            fba.writeFile(本地, request(远程));
+		            $$$().x5LazyRule(() => {
+		                confirm({
+		                    title: '更新完成',
+		                    content: '欢迎使用',
+		                })
+		            })
+		        }
+		    }    
       </script>  
  </body>
 </html>
